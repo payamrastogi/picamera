@@ -19,7 +19,7 @@ def getCameraInstance():
     camera.brightness = 50
     return camera
 
-def capture(camera):
+def capture(camera, folder_id):
     try:
         camera.start_preview()
         while(True):
@@ -35,7 +35,7 @@ def capture(camera):
             camera.annotate_text = dt_string
             camera.capture('/home/pi/upload/picam-%s.jpg' %now)
             logger.info('captured /home/pi/upload/picam-%s.jpg', now)
-            upload(drive)
+            upload(drive, folder_id)
             sleep(sleepTime)
         camera.stop_preview()
     except Exception as e:
@@ -48,14 +48,37 @@ def getDriveInstance():
     drive = GoogleDrive(gauth)
     return drive
 
-def upload(drive):
+def getFiles(drive, folder_id):
+    query = "\'"+folder_id + "' in parents and trashed=false"
+    fileList = drive.ListFile({'q': query}).GetList()
+    return fileList
+
+def getId(drive, folderName, parentFolder):
+    fileList = getFiles(drive, 'root')
+    for file1 in fileList:
+        if file1['title'] == folderName:
+            return file1['id']
+    return None
+
+def createFolder(drive, folderName, parentFolder):
+    folder = drive.CreateFile({'title': folderName, 'mimeType': 'application/vnd.google-apps.folder', 'parents':["'"+parentFolder+"'"]})
+    folder.Upload()
+    return folder['id']
+
+def createFolderIfNotExists(drive, folderName, parentFolder):
+    folder_id = getId(drive, folderName, parentFolder)
+    if folder_id is None:
+        folder_id = createFolder(drive, folderName, parentFolder)
+    return folder_id
+
+def upload(drive, parentFolder):
     try:
         os.chdir("/home/pi/upload")
         for file in glob.glob("*.jpg"):
             logger.info('%s', file)
             with open(file, "r") as f:
                 fn = os.path.basename(f.name)
-                file_drive = drive.CreateFile({ 'title': fn })
+                file_drive = drive.CreateFile({ 'title': fn, 'parents':["'"+parentFolder+"'"] })
                 file_drive.SetContentFile(fn)
                 file_drive.Upload()
                 logger.info("The file %s has been uploaded", fn)
@@ -65,5 +88,7 @@ def upload(drive):
 
 if __name__ == '__main__':
     drive = getDriveInstance()
+    folder_id = createFolderIfNotExists(drive, 'picam', 'root')
+    print(folder_id)
     camera = getCameraInstance()
-    capture(camera)
+    capture(camera, folder_id)
