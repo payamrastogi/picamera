@@ -1,6 +1,3 @@
-#https://medium.com/analytics-vidhya/pydrive-to-download-from-google-drive-to-a-remote-machine-14c2d086e84e
-#https://medium.com/@annissouames99/how-to-upload-files-automatically-to-drive-with-python-ee19bb13dda
-
 from pydrive.auth import GoogleAuth
 from pydrive.drive import GoogleDrive
 import glob, os
