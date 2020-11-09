@@ -89,6 +89,6 @@ def upload(drive, parentFolder):
 if __name__ == '__main__':
     drive = getDriveInstance()
     folder_id = createFolderIfNotExists(drive, 'picam', 'root')
-    print(folder_id)
+    #print(folder_id)
     camera = getCameraInstance()
     capture(camera, folder_id)
