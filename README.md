@@ -14,3 +14,6 @@
 - https://medium.com/@annissouames99/how-to-upload-files-automatically-to-drive-with-python-ee19bb13dda
 - https://linuxize.com/post/how-to-run-linux-commands-in-background/
 - https://stackoverflow.com/questions/20154490/how-to-log-everything-into-a-file-using-rotatingfilehandler-by-using-logging-con
+
+#
+- nohup python ProducerConsumer.py > nohup.out 2>&1 &
