@@ -3,3 +3,5 @@ client_secrets.json
 settings.yaml
 *.log
 *.pyc
+*.out
+*.pid

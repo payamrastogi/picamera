@@ -1,3 +1,26 @@
+#### settings.yaml
+```
+client_config_backend: 'settings'
+client_config:
+  client_id: <client_id>
+  client_secret: <client_secret>
+save_credentials: True
+save_credentials_backend: 'file'
+save_credentials_file: 'creds.json'
+oauth_scope:
+- "https://www.googleapis.com/auth/drive"
+
+```
+
+#### client_secrets.json
+```
+{"installed":{"client_id":"<client_id>","project_id":"picamera-295003","auth_uri":"https://accounts.google.com/o/oauth2/auth","token_uri":"https://oauth2.googleapis.com/token","auth_provider_x509_cert_url":"https://www.googleapis.com/oauth2/v1/certs","client_secret":"<client_secret>","redirect_uris":["urn:ietf:wg:oauth:2.0:oob","http://localhost"]}}
+
+```
+
+
+
+
 ## References:
 - https://www.raspberrypi.org/documentation/remote-access/ssh/scp.md
 - https://projects.raspberrypi.org/en/projects/getting-started-with-picamera
