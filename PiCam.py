@@ -13,7 +13,8 @@ class PiCam:
         self.camera.framerate = 15
         self.camera.brightness = 50
         self.camera.annotate_foreground = Color('yellow')
-        self.sleepTime = 30
+        self.daySleepTime = 30
+        self.nightSleepTime = 120
         logging.config.fileConfig('piCamLog.conf',disable_existing_loggers=0)
         self.logger = logging.getLogger('picamlogger')
     
@@ -24,12 +25,12 @@ class PiCam:
             
             if self.isDark():
                 self.camera.brightness = 55
-                self.sleepTime = 30
+                sleepTime = self.daySleepTime
             else:
                 self.camera.brightness = 50
-                self.sleepTime = 30
+                sleepTime = self.nightSleepTime
             
-            sleep(self.sleepTime)
+            sleep(sleepTime)
             now = datetime.now()
             dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
             self.camera.annotate_text = dt_string

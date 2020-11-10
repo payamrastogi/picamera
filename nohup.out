@@ -1,6 +1,0 @@
-Traceback (most recent call last):
-  File "ProducerConsumer.py", line 6, in <module>
-    from PyDrive import PyDrive
-  File "/home/pi/camera/PyDrive.py", line 1, in <module>
-    from pydrive.auth import GoogleAuth
-ImportError: No module named pydrive.auth
