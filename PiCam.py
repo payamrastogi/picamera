@@ -24,7 +24,7 @@ class PiCam:
             
             if self.isDark():
                 self.camera.brightness = 55
-                self.sleepTime = 120
+                self.sleepTime = 30
             else:
                 self.camera.brightness = 50
                 self.sleepTime = 30

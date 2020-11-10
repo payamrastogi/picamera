@@ -18,9 +18,6 @@ oauth_scope:
 
 ```
 
-
-
-
 ## References:
 - https://www.raspberrypi.org/documentation/remote-access/ssh/scp.md
 - https://projects.raspberrypi.org/en/projects/getting-started-with-picamera
@@ -37,6 +34,4 @@ oauth_scope:
 - https://medium.com/@annissouames99/how-to-upload-files-automatically-to-drive-with-python-ee19bb13dda
 - https://linuxize.com/post/how-to-run-linux-commands-in-background/
 - https://stackoverflow.com/questions/20154490/how-to-log-everything-into-a-file-using-rotatingfilehandler-by-using-logging-con
-
-#
-- nohup python ProducerConsumer.py > nohup.out 2>&1 &
+- https://unix.stackexchange.com/questions/506347/why-do-most-systemd-examples-contain-wantedby-multi-user-target
