@@ -1,6 +1,6 @@
 creds.json
-#client_secrets.json
-#settings.yaml
+client_secrets.json
+settings.yaml
 *.log
 *.pyc
 *.out
