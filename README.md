@@ -18,6 +18,15 @@ oauth_scope:
 
 ```
 
+Steps:
+1. create an empty file "creds.json"
+2. uncomment line 52 and 53 in PyDrive.py
+3. Run python PyDrive.py
+4. open the url in browser and copy token and paste it in the terminal
+5. comment line 52 and 53 in PyDrive.py
+6. run ./start.sh
+7. to stop run ./stop.sh
+
 ## References:
 - https://www.raspberrypi.org/documentation/remote-access/ssh/scp.md
 - https://projects.raspberrypi.org/en/projects/getting-started-with-picamera

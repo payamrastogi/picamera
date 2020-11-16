@@ -50,4 +50,4 @@ class PyDrive:
         return folder_id
 
 #pyDrive = PyDrive()
-#pyDrive.upload('/home/pi/upload/picam-2020-11-09 00:44:35.731405.jpg')
+#pyDrive.upload('/home/pi/workspace/picamera/uploads/picam-2020-11-15 22:40:07.593329.jpg')
