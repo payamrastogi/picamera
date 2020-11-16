@@ -1,5 +1,5 @@
 #!/bin/sh
-file="/home/pi/camera/picam.pid"
+file="/home/pi/workspace/picamera/picam.pid"
 if [ -f $file ] ; then
     kill -9 `cat $file`;
     rm $file;

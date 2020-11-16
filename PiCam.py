@@ -34,7 +34,7 @@ class PiCam:
             now = datetime.now()
             dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
             self.camera.annotate_text = dt_string
-            fileName = '/home/pi/upload/picam-{}.jpg'.format(now)
+            fileName = '/home/pi/workspace/picamera/uploads/picam-{}.jpg'.format(now)
             self.camera.capture(fileName)
             self.logger.info("Captured:"+fileName)
             self.camera.stop_preview()

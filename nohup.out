@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "Surveillance.py", line 5, in <module>
+    from PiCam import PiCam
+  File "/home/pi/workspace/picamera/PiCam.py", line 3, in <module>
+    from picamera import PiCamera, Color
+ImportError: No module named picamera
