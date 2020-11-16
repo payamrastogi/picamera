@@ -5,3 +5,4 @@ settings.yaml
 *.pyc
 *.out
 *.pid
+nohup.out

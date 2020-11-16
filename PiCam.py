@@ -23,7 +23,7 @@ class PiCam:
         try:
             self.camera.start_preview()
             
-            if self.isDark():
+            if not self.isDark():
                 self.camera.brightness = 55
                 sleepTime = self.daySleepTime
             else:
