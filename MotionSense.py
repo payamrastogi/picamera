@@ -2,6 +2,7 @@
 from datetime import datetime, time
 from gpiozero import MotionSensor
 from picamera import PiCamera
+from DeleteFileUtil import DeleteFileUtil
 import logging
 import logging.config
 
@@ -24,9 +25,9 @@ class MotionSense:
             self.camera.brightness = 55
 
         now = datetime.now()
-        dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
+        dt_string = now.strftime("%d%m%YH%HM%MS%S")
         self.camera.annotate_text = dt_string
-        fileName = '/home/pi/workspace/picamera/uploads/picam-{}.h264'.format(now)
+        fileName = '/home/pi/workspace/picamera/uploads/picam-{}.h264'.format(dt_string)
         self.camera.start_recording(fileName)
         self.pirMotionSensor.wait_for_no_motion()
         self.logger.info("Captured:"+fileName)
@@ -42,5 +43,8 @@ class MotionSense:
 
 
 motionSense = MotionSense()
+deleteFileUtil = DeleteFileUtil('/home/pi/workspace/picamera/uploads', '2G')
 while True:
     motionSense.detect()
+    deleteFileUtil.deleteFilesUntilDirectorySize()
+    
