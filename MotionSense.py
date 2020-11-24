@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/python3
 from datetime import datetime, time
 from gpiozero import MotionSensor
 from picamera import PiCamera
