@@ -6,3 +6,4 @@ settings.yaml
 *.out
 *.pid
 nohup.out
+uploads/*
