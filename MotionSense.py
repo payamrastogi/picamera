@@ -22,7 +22,7 @@ class MotionSense:
         if not self.isDark():
             self.camera.brightness = 50
         else:
-            self.camera.brightness = 55
+            self.camera.brightness = 60
 
         now = datetime.now()
         dt_string = now.strftime("%d%m%YH%HM%MS%S")

@@ -27,6 +27,11 @@ Steps:
 6. run ./start.sh
 7. to stop run ./stop.sh
 
+```
+raspivid -o - -t 0 -br 55 -w 800 -h 400 -fps 24 |cvlc -vvv stream:///dev/stdin --sout '#standard{access=http,mux=ts,dst=:8160}' :demux=h264
+```
+
+
 ## References:
 - https://www.raspberrypi.org/documentation/remote-access/ssh/scp.md
 - https://projects.raspberrypi.org/en/projects/getting-started-with-picamera
@@ -44,3 +49,4 @@ Steps:
 - https://linuxize.com/post/how-to-run-linux-commands-in-background/
 - https://stackoverflow.com/questions/20154490/how-to-log-everything-into-a-file-using-rotatingfilehandler-by-using-logging-con
 - https://unix.stackexchange.com/questions/506347/why-do-most-systemd-examples-contain-wantedby-multi-user-target
+- https://gist.github.com/ginz/1ba7de8b911651cfc9c85a82a723f952

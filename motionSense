@@ -1,0 +1,20 @@
+
+#!/bin/bash
+#MotionSense init script
+
+HOME=/home/pi/workspace/picamera
+
+case $1 in
+start)
+        bash ${HOME}/motionSenseStart.sh
+        ;;
+stop)
+        bash ${HOME}/motionSenseStop.sh
+        ;;
+restart)
+        bash ${HOME}/motionSenseStop.sh
+        sleep 5
+        bash ${HOME}/motionSenseStart.sh
+        ;;
+esac
+exit 0
